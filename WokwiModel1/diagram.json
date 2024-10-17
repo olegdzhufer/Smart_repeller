@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "author": "Максим Олексів",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": -4.76, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -216.8, "left": 11.82, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -103.2,
+      "left": 251.4,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn1",
+      "top": -56.1,
+      "left": 14.1,
+      "rotate": 90,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "pir1:GND", "esp:GND.2", "gray", [ "v9.6", "h57.34", "v134.4" ] ],
+    [ "pir1:OUT", "esp:RX", "green", [ "v0" ] ],
+    [ "pir1:VCC", "esp:3V3", "red", [ "v0", "h-172.8" ] ],
+    [ "bz1:2", "esp:15", "green", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.2", "gray", [ "v48", "h-182.4" ] ],
+    [ "btn1:2.r", "esp:GND.2", "gray", [ "v38.4", "h76.4", "v20" ] ],
+    [ "btn1:1.r", "esp:3V3", "red", [ "v0" ] ],
+    [ "btn1:2.l", "esp:21", "green", [ "v-10.4", "h94.2", "v124.8" ] ]
+  ],
+  "dependencies": {}
+}
